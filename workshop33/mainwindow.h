@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include <QVector>
 
 #include "renderarea.h"
 
@@ -22,10 +23,12 @@ public:
 
 private slots:
     void addRectangleSlot();
+    void addButton();
     
 private:
     Ui::MainWindow* ui;
     RenderArea* _renderArea;
+    QVector<QAbstractButton*> _buttons;
 
 };
 #endif // MAINWINDOW_H

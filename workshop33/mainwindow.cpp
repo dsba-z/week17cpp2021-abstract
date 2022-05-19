@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     
     
     QObject::connect(ui->addRectButton, SIGNAL(clicked()), this, SLOT(addRectangleSlot()));
+    QObject::connect(ui->addButtonButton, SIGNAL(clicked()), this, SLOT(addButton()));
 
     _renderArea = new RenderArea(ui->centralwidget);
 
@@ -37,7 +38,19 @@ void MainWindow::addRectangleSlot()
     _renderArea->addRectangle();
 }
 
+
+void MainWindow::addButton()
+{
+    QPushButton* button = new QPushButton(ui->grpSettings);
+    ui->verticalLayout->addWidget(button);
+    _buttons.push_back(button);
+}
+
 MainWindow::~MainWindow()
 {
+    for (auto b: _buttons)
+    {
+        delete b;
+    }
     delete ui;
 }

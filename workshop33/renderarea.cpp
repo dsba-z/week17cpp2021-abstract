@@ -20,7 +20,7 @@ RenderArea::~RenderArea()
 
 void RenderArea::addRectangle()
 {
-    int x = QRandomGenerator::global()->generate() % (width()/2);
+    int x = rand() % (width()/2);
     int y = QRandomGenerator::global()->generate() % (height()/2);
     int w = QRandomGenerator::global()->generate() % (width()/2);
     int h = QRandomGenerator::global()->generate() % (height()/2);
@@ -39,6 +39,8 @@ void RenderArea::paintEvent(QPaintEvent* /* event */)
     QPen figPen(Qt::GlobalColor::red);
     painter.setBrush(figBrush);
     painter.setPen(figPen);
+    
+    painter.scale(10, 1);
 
     // draw the canvas
     canvas->drawAll(&painter);
